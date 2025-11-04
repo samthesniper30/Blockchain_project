@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Scholarship Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>🎓 Smart Contract Scholarship Dashboard</h1>
+
+    <div class="grid">
+      <div class="card">
+        <h2>Register Student</h2>
+        <input id="studentAddress" type="text" placeholder="Student Wallet Address">
+        <input id="amountEth" type="number" step="0.01" placeholder="Amount (ETH)">
+        <button onclick="registerStudent()">Register</button>
+      </div>
+
+      <div class="card">
+        <h2>Deposit Funds</h2>
+        <input id="depositAmount" type="number" step="0.01" placeholder="Amount (ETH)">
+        <button onclick="depositFunds()">Deposit</button>
+      </div>
+
+      <div class="card">
+        <h2>Claim Scholarship</h2>
+        <input id="claimAddress" type="text" placeholder="Student Wallet Address">
+        <button onclick="claimScholarship()">Claim</button>
+      </div>
+    </div>
+
+    <div class="stats">
+      <h2>Contract Statistics</h2>
+      <div id="stats-container">
+        <p><b>Total Allocated:</b> <span id="allocated">0</span> ETH</p>
+        <p><b>Claimed:</b> <span id="claimed">0</span> ETH</p>
+        <p><b>Total Budget:</b> <span id="budget">0</span> ETH</p>
+        <p><b>Remaining:</b> <span id="remaining">0</span> ETH</p>
+      </div>
+    </div>
+
+    <canvas id="statsChart" width="400" height="200"></canvas>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
